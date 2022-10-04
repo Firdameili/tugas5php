@@ -1,19 +1,41 @@
-<?php
-require_once 'luasbidang.php';
-class segitiga extends bentuk3d{
-    //member1 variabel
+<?php 
+require_once "Bentuk2D.php";
+
+class Segitiga extends Bentuk2D 
+{
     public $alas;
     public $tinggi;
-    //member2 constructor
-    public function  __construct($namabidang,$luasbidang,$kelilingbidang,$alas,$tinggi){
-        parent::__construct($namabidang,$kelilingbidang,$luasbidang);
-        $this->tinggi = $alas;
+
+    public function __construct($alas, $tinggi)
+    {
+        $this->alas = $alas;
         $this->tinggi = $tinggi;
     }
-    public function mencetak(){
-        parent::mencetak();
-        echo '<br/>Alas '.$this->alas;
-        echo '<br/> Tinggi '.$this->tinggi;
-        echo '<hr/>'; 
+
+    public function namaBidang()
+    {
+        $nama = "Segitiga";
+        return $nama;
+    }
+
+    public function kelilingBidang()
+    {
+        $keliling = 3 * $this->alas;
+        return $keliling;
+    }
+
+    public function luasBidang()
+    {
+        $luas = 0.5 * $this->alas * $this->tinggi;
+        return $luas;
+    }
+
+    public function keterangan()
+    {
+        return "
+        Alas : ".$this->alas." <br>
+        Tinggi : ".$this->tinggi."
+        ";
     }
 }
+?>

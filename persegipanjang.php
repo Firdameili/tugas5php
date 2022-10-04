@@ -1,19 +1,42 @@
-<?php
-require_once 'luasbidang.php';
-class persegipanjang extends bentuk3d{
-    //member1 variabel
+<?php 
+require_once "Bentuk2D.php";
+
+class PersegiPanjang extends Bentuk2D
+{
     public $panjang;
     public $lebar;
-    //member2 constructor
-    public function  __construct($namabidang,$luasbidang,$kelilingbidang,$panjang,$lebar){
-        parent::__construct($namabidang,$kelilingbidang,$luasbidang);
+
+    public function __construct($panjang, $lebar)
+    {
         $this->panjang = $panjang;
         $this->lebar = $lebar;
     }
-    public function mencetak(){
-        parent::mencetak();
-        echo '<br/>panjang '.$this->panjang;
-        echo '<br/> lebar '.$this->lebar;
-        echo '<hr/>'; 
+
+    public function namaBidang()
+    {
+        $nama = "Persegi Panjang";
+        return $nama;
+    }
+
+    public function kelilingBidang()
+    {
+        $keliling = (2 * $this->panjang) + (2 * $this->lebar);
+        return $keliling;
+    }
+
+    public function luasBidang()
+    {
+        $luas = $this->panjang * $this->lebar;
+        return $luas;
+    }
+
+    public function keterangan()
+    {
+        return "
+        Panjang : ".$this->panjang." <br>
+        Lebar : ".$this->lebar."
+        ";
     }
 }
+
+?>
